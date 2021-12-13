@@ -7,6 +7,12 @@ const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
 const BoardModerator = () => import("./components/BoardModerator.vue")
 const BoardUser = () => import("./components/BoardUser.vue")
+const Team = () => import("./components/Team/Team.vue")
+const CreateTeam = () => import("./components/Team/CreateTeam.vue")
+const ShowTeam = () => import("./components/Team/ShowTeam.vue")
+const UpdateTeam = () => import("./components/Team/UpdateTeam.vue")
+
+
 
 const routes = [
   {
@@ -50,6 +56,31 @@ const routes = [
     // lazy-loaded
     component: BoardUser,
   },
+  {
+    path: "/Team",
+    name: "Team",
+    // lazy-loaded
+    component: Team,
+  },
+  {
+    path: "/CreateTeam",
+    name: "CreateTeam",
+    // lazy-loaded
+    component: CreateTeam,
+  },
+  {
+    path: "/ShowTeam",
+    name: "ShowTeam",
+    // lazy-loaded
+    component: ShowTeam,
+  },
+  {
+    path: "/UpdateTeam",
+    name: "UpdateTeam",
+    // lazy-loaded
+    component: UpdateTeam,
+  },
+  
 ];
 
 const router = createRouter({

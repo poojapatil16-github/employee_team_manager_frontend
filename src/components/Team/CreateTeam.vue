@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h3>Add Item</h3>
+                <h3>Add Team</h3>
             </div>
             <div class="card-body">
-                <form v-on:submit.prevent="addItem">
+                <form v-on:submit.prevent="addTeam">
                     <div class="form-group">
                         <label>Name:</label>
                         <input type="text" class="form-control" v-model="item.name"/>
@@ -19,7 +19,7 @@
                         <input type="Date" class="form-control" v-model="item.endDate"/>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Add Item"/>
+                        <input type="submit" class="btn btn-primary" value="Create"/>
                     </div>
                 </form>
             </div>
@@ -37,7 +37,7 @@ export default {
       }
   },
   methods: {
-      addItem() {
+      addTeam() {
            let uri = 'http://localhost:8080/api/team/create';
             this.axios.post(uri, this.item).then((response) => {
                 console.log(response.data)
