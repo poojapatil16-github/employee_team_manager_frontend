@@ -3,8 +3,14 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "bootstrap";
+
+import { FontAwesomeIcon } from './plugins/font-awesome';
+
+// Import Bootstrap an BootstrapVue CSS files (order is important)
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FontAwesomeIcon } from './plugins/font-awesome'
+
+
+
 
 createApp(App)
   .use(router)

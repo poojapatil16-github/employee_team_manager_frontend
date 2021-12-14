@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <h1>Items</h1>
+    <div class="container mt-5">
+        <h1>All Teams Details</h1>
 
-        <table class="table table-hover">
-            <thead>
+        <table class="table mt-5">
+            <thead class="thead-dark">
             <tr>
-                <td>Name</td>
-                <td>Start Date</td>
-                <td>End Date</td>
-                <td>Actions</td>
+                <th>Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Actions</th>
             </tr>
             </thead>
 
@@ -17,8 +17,8 @@
                     <td>{{ item.name }}</td>
                     <td>{{ item.startDate }}</td>
                     <td>{{ item.endDate }}</td>
-                    <td><router-link :to="{name: 'Edit', params: { name: item.name }}" class="btn btn-primary">Edit</router-link></td>
-                    <td><button v-on:click="deleteItem(item.name)" class="btn btn-danger">Delete</button></td>
+                    <td><router-link :to="{name: 'UpdateTeam', params: { name: item.name }}" class="btn btn-primary mr-3">Edit</router-link>
+                    <button v-on:click="deleteItem(item.name)" class="btn btn-danger">Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import TeamService from "../../services/team.service";
 
     export default {
         data(){
@@ -42,16 +43,17 @@
         methods: {
             fetchItems()
             {
-              let uri = 'http://localhost:8080/api/team/findAll';
-              this.axios.get(uri).then((response) => {
+              TeamService.getTeams().then((response) => {
                   this.items = response.data;
               });
             },
             deleteItem(name)
             {
-              let uri = 'http://localhost:8080/api/team/delete/'+name;
-              this.items.splice(name, 1);
-              this.axios.get(uri);
+              TeamService.deleteTeams(name).then((response) => {
+                  this.items = response.data;
+                  this.fetchItems();
+                  console.log("deleted");
+              });
             }
         }
     }

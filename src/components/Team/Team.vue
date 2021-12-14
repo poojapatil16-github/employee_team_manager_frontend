@@ -1,15 +1,12 @@
 <template>
-  <div id="app" class="container">
-    <nav class="navbar navbar-expand-sm bg-light">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link :to="{ name: 'CreateTeam' }" tag="button" class=btn btn-danger>Add Team</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link :to="{ name: 'ShowTeam' }" class="nav-link">All Team</router-link>
-        </li>
-      </ul>
-    </nav>
+  <div id="app" class="container ">
+    <header class="jumbotron">
+      <h3>Welcome to Teams dashboard</h3>
+    </header>
+          <button type="button" class="btn btn-dark mr-3" ><router-link :to="{ name: 'CreateTeam' }">Add Team</router-link></button>
+
+          <button type="button" class="btn btn-dark" ><router-link :to="{ name: 'ShowTeam' }">All Team</router-link></button>
+
     <transition name="fade">
       <div class="gap">
         <router-view></router-view>        

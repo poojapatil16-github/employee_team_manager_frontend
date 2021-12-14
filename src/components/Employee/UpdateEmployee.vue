@@ -11,12 +11,16 @@
                         <input type="text" class="form-control" v-model="item.name"/>
                     </div>
                     <div class="form-group">
-                        <label>Start Date:</label>
-                        <input type="Date" class="form-control" v-model="item.startDate"/>
+                        <label>Join Date:</label>
+                        <input type="Date" class="form-control" v-model="item.joinDate"/>
                     </div>
                     <div class="form-group">
-                        <label>End Date:</label>
-                        <input type="Date" class="form-control" v-model="item.endDate"/>
+                        <label>TeamCode:</label>
+                        <input type="text" class="form-control" v-model="item.teamCode"/>
+                    </div>
+                     <div class="form-group">
+                        <label>skills:</label>
+                        <input type="text" class="form-control" v-model="item.skills"/>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Update Item"/>
@@ -27,7 +31,7 @@
     </div>
 </template>
 <script>
-import TeamService from "../../services/team.service";
+import EmployeeService from "../../services/employee.service";
 
 export default{
         data(){
@@ -44,7 +48,7 @@ export default{
   
              getOne(name)
             {
-              TeamService.getOneTeams(name).then((response) => {
+              EmployeeService.getOneEmployee(name).then((response) => {
                   this.items = response.data;
                   console.log("get one");
               });
@@ -52,8 +56,8 @@ export default{
 
             updateItem()
             {
-                TeamService.updateTeam(this.item).then(() => {
-                  this.$router.push({name: 'ShowTeam'});
+                EmployeeService.updateEmployee(this.item).then(() => {
+                  this.$router.push({name: 'ShowEmployee'});
                 });
             }
         }

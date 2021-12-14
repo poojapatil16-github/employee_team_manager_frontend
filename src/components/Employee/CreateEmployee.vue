@@ -2,21 +2,25 @@
   <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h3>Add Team</h3>
+                <h3>Add Employee</h3>
             </div>
             <div class="card-body">
-                <form v-on:submit.prevent="addTeam">
+                <form v-on:submit.prevent="addEmployee">
                     <div class="form-group">
                         <label>Name:</label>
                         <input type="text" class="form-control" v-model="item.name"/>
                     </div>
                     <div class="form-group">
-                        <label>Start Date:</label>
-                        <input type="Date" class="form-control" v-model="item.startDate"/>
+                        <label>Join Date:</label>
+                        <input type="Date" class="form-control" v-model="item.joinDate"/>
                     </div>
                     <div class="form-group">
-                        <label>End Date:</label>
-                        <input type="Date" class="form-control" v-model="item.endDate"/>
+                        <label>TeamCode:</label>
+                        <input type="text" class="form-control" v-model="item.teamCode"/>
+                    </div>
+                    <div class="form-group">
+                        <label>skills:</label>
+                        <input type="text" class="form-control" v-model="item.skills"/>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Create"/>
@@ -28,7 +32,7 @@
 </template>
 
 <script>
-import TeamService from "../../services/team.service";
+import EmployeeService from "../../services/employee.service";
 export default {
   components: {
   },
@@ -38,11 +42,11 @@ export default {
       }
   },
   methods: {
-      addTeam() {
-          TeamService.createTeam(this.item).then(
+      addEmployee() {
+          EmployeeService.createEmployee(this.item).then(
               (response) => {
                   this.content = response.data;
-                  alert('Team created successfully!');
+                  console.log("response data"+this.content);
                   },
                   (error) => {
                       this.content =(error.response && error.response.data && error.response.data.message) || 

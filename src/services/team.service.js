@@ -1,24 +1,37 @@
 import axios from 'axios';
 // import authHeader from './auth-header';
 
-const API_URL = 'http://localhost:8080/api/team/';
+const API_URL = 'http://localhost:8080/api/v1/team';
 
 class TeamService {
-  getAllTeams() {
-    return axios.get(API_URL + 'findAll');
+
+  createTeam(team) {
+    return axios.post(API_URL , {
+      name: team.name,
+      startDate: team.startDate,
+      endDate: team.endDate
+    });
   }
 
-//   getUserBoard() {
-//     return axios.get(API_URL + 'user', { headers: authHeader() });
-//   }
+  getTeams() {
+    return axios.get(API_URL);
+  }
 
-//   getModeratorBoard() {
-//     return axios.get(API_URL + 'mod', { headers: authHeader() });
-//   }
+  getOneTeams(name) {
+    return axios.get(API_URL,{ params: { name: name }});
+  }
 
-//   getAdminBoard() {
-//     return axios.get(API_URL + 'admin', { headers: authHeader() });
-//   }
+  updateTeam(team) {
+    return axios.put(API_URL , {
+      name: team.name,
+      startDate: team.startDate,
+      endDate: team.endDate
+    });
+  }
+
+  deleteTeams(name) {
+    return axios.delete(API_URL,{ params: { name: name }});
+  }
 }
 
 export default new TeamService();
