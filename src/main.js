@@ -7,7 +7,7 @@ import "bootstrap";
 import { FontAwesomeIcon } from './plugins/font-awesome';
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 
 

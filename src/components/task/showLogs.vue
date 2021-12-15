@@ -5,9 +5,9 @@
         <table class="table table-hover mt-5">
             <thead>
             <tr>
-                <td>employee_code</td>
-                <td>logedTime</td>
-                <td>logStartDate</td>
+                <th>employee_code</th>
+                <th>logedTime</th>
+                <th>logStartDate</th>
             </tr>
             </thead>
 
@@ -24,8 +24,6 @@
         </table>
         
     </div>
-
-
 </template>
 
 <script>

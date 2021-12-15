@@ -5,11 +5,11 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <td>Name</td>
-                <td>join Date</td>
-                <td>TeamCode</td>
-                <td>skills</td>
-                <td>Actions</td>
+                <th>Name</th>
+                <th>join Date</th>
+                <th>TeamCode</th>
+                <th>skills</th>
+                <th>Actions</th>
             </tr>
             </thead>
 
