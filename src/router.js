@@ -18,7 +18,6 @@ const task = () => import("./components/task/task.vue")
 const createTask = () => import("./components/task/createTask.vue")  
 const showTask = () => import("./components/task/showTask.vue")  
 const UpdateTask = () => import("./components/task/UpdateTask.vue")  
-const showLogs = () => import("./components/task/showLogs.vue")  
 
 
 
@@ -118,12 +117,7 @@ const routes = [
     // lazy-loaded
     component: UpdateTask,
   },
-  {
-    path: "/showLogs",
-    name: "showLogs",
-    // lazy-loaded
-    component: showLogs,
-  },
+
 ];
 
 const router = createRouter({
