@@ -1,15 +1,14 @@
+
+
 <template>
-  <div id="app" class="container">
-    <nav class="navbar navbar-expand-sm bg-light">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link :to="{ name: 'createTask' }" tag="button" class=btn btn-danger>Add Task</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link :to="{ name: 'showTask' }" class="nav-link">All Task</router-link>
-        </li>
-      </ul>
-    </nav>
+  <div id="app" class="container ">
+    <header class="jumbotron">
+      <h3>Welcome to Task dashboard</h3>
+    </header>
+          <button type="button" class="btn btn-dark mr-3" ><router-link :to="{ name: 'createTask' }">Add Task</router-link></button>
+
+          <button type="button" class="btn btn-dark" ><router-link :to="{ name: 'showTask' }">View Task</router-link></button>
+
     <transition name="fade">
       <div class="gap">
         <router-view></router-view>        

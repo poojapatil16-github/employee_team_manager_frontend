@@ -25,8 +25,8 @@
                    
                    <div class="form-group">
                         <label class="mr-3">Log:</label>
-                        <button class="btn btn-secondary" aria-controls="exampleModal" @click="exampleModal = true">
-                    Add Logs</button>
+                        <a class="btn btn-secondary" aria-controls="exampleModal" @click="exampleModal = true">
+                    Add Logs</a>
                     </div>
                     
 
@@ -34,7 +34,8 @@
                         id="exampleModal"
                         tabindex="-1"
                         labelledby="exampleModalLabel"
-                        v-model="exampleModal">
+                        v-model="exampleModal"
+                        >
                     
                         <MDBModalHeader>
                             <MDBModalTitle id="exampleModalLabel"> Add Logs here </MDBModalTitle>
@@ -54,12 +55,12 @@
                             </div>
                         </MDBModalBody>
                         <MDBModalFooter>
-                          <button class="btn btn-secondary" >Add</button>
+                          <button class="btn btn-secondary" onClick={this.handleCloseModal()}>Add</button>
                         </MDBModalFooter>
                     </MDBModal>
 
                     <div class="form-group mt-2">
-                        <input type="submit" class="btn btn-primary" value="Create"/>
+                        <input type="submit"  class="btn btn-primary" value="Create"/>
                     </div>
                 </form>
             </div>
@@ -87,6 +88,9 @@ export default {
       MDBModalFooter,
       
   },
+  handleCloseModal() {
+    this.setState({ showModal: false });
+  },
       setup() {
       const exampleModal = ref(false);
 
@@ -101,11 +105,10 @@ export default {
   },
   methods: {
       addTask() {
-          console.log("Inside data1");
           TaskService.createTask(this.item).then(
               (response) => {
                   this.content = response.data;
-                  console.log("response data"+this.content);
+                  alert('Task created successfully!');
                   },
                   (error) => {
                       this.content =(error.response && error.response.data && error.response.data.message) || 

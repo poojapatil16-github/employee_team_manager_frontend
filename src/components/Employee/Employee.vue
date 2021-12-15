@@ -1,15 +1,13 @@
+
 <template>
-  <div id="app" class="container">
-    <nav class="navbar navbar-expand-sm bg-light">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link :to="{ name: 'CreateEmployee' }" tag="button" class=btn btn-danger>Add Employee</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link :to="{ name: 'ShowEmployee' }" class="nav-link">All Employee</router-link>
-        </li>
-      </ul>
-    </nav>
+  <div id="app" class="container ">
+    <header class="jumbotron">
+      <h3>Welcome to Employee dashboard</h3>
+    </header>
+          <button type="button" class="btn btn-dark mr-3" ><router-link :to="{ name: 'CreateEmployee' }">Add Employee</router-link></button>
+
+          <button type="button" class="btn btn-dark" ><router-link :to="{ name: 'ShowEmployee' }">View Employee</router-link></button>
+
     <transition name="fade">
       <div class="gap">
         <router-view></router-view>        

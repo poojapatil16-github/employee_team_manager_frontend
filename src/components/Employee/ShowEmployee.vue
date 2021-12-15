@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Items</h1>
+        <h1 class="mt-5">Employees</h1>
 
         <table class="table table-hover">
             <thead>
@@ -19,8 +19,8 @@
                     <td>{{ item.joinDate }}</td>
                     <td>{{ item.teamCode }}</td>
                     <td>{{ item.skills }}</td>
-                    <td><router-link :to="{name: 'UpdateEmployee', params: { name: item.name }}" class="btn btn-primary">Edit</router-link></td>
-                    <td><button v-on:click="deleteItem(item.name)" class="btn btn-danger">Delete</button></td>
+                    <td><router-link :to="{name: 'UpdateEmployee', params: { name: item.name }}" class="btn btn-primary mr-3">Edit</router-link>
+                    <button v-on:click="deleteItem(item.name)" class="btn btn-danger">Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -51,11 +51,9 @@ import EmployeeService from "../../services/employee.service";
             },
             deleteItem(name)
             {
-              console.log("delete Emp in emp",name);
               EmployeeService.deleteEmployee(name).then((response) => {
                   this.items = response.data;
                   this.fetchItems();
-                  console.log("deleted");
               });
             }
         }

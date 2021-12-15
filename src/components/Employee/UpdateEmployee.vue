@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h3>Edit Item</h3>
+                <h3>Edit Employee Deatils</h3>
             </div>
             <div class="card-body">
                 <form v-on:submit.prevent="updateItem">
@@ -50,7 +50,6 @@ export default{
             {
               EmployeeService.getOneEmployee(name).then((response) => {
                   this.items = response.data;
-                  console.log("get one");
               });
             },
 

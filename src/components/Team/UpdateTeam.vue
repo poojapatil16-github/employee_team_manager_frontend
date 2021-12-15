@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h3>Edit Item</h3>
+                <h3>Edit Team Details</h3>
             </div>
             <div class="card-body">
-                <form v-on:submit.prevent="updateItem">
+                <form v-on:submit.prevent="updateTeam">
                      <div class="form-group">
                         <label>Name:</label>
                         <input type="text" class="form-control" v-model="item.name"/>
@@ -19,7 +19,7 @@
                         <input type="Date" class="form-control" v-model="item.endDate"/>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Update Item"/>
+                        <input type="submit" class="btn btn-primary" value="Update"/>
                     </div>
                 </form>
             </div>
@@ -50,7 +50,7 @@ export default{
               });
             },
 
-            updateItem()
+            updateTeam()
             {
                 TeamService.updateTeam(this.item).then(() => {
                   this.$router.push({name: 'ShowTeam'});

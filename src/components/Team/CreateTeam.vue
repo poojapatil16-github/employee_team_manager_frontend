@@ -2,7 +2,7 @@
   <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h3>Add Team</h3>
+                <h3>Create Team</h3>
             </div>
             <div class="card-body">
                 <form v-on:submit.prevent="addTeam">
@@ -47,6 +47,7 @@ export default {
                   (error) => {
                       this.content =(error.response && error.response.data && error.response.data.message) || 
                         error.message || error.toString();
+                                          alert('Something went wrong!');
                     }
                 );
         }

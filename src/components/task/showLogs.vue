@@ -12,12 +12,14 @@
             </thead>
 
             <tbody>
-                <tr v-for="item in items" :key="item.code">
-                    <td>{{ item.logs.employee_code }}</td>
-                    <td>{{ item.logs.logedTime }}</td>
-                    <td>{{ item.logs.logStartDate }}</td>
+                 <template v-for="item in items" v-bind:key="item.code">
+                    <tr v-for="newElement in item.logs" v-bind:key="newElement.employee_code">
+                    <td>{{ newElement.employee_code }}</td>
+                    <td>{{ newElement.logedTime }}</td>
+                    <td>{{ newElement.logStartDate }}</td>
                     
                 </tr>
+                </template>
             </tbody>
         </table>
         
@@ -42,12 +44,12 @@ import TaskService from "../../services/task.service";
         },
 
         methods: {
-            fetchItems()
+            fetchItems(code)
             {
-              TaskService.getOneTask(this.item).then((response) => {
+              TaskService.getOneTask(code).then((response) => {
                   this.items = response.data;
-                  this.$router.push({name: 'showTask'});
-                  console.log("response data"+this.items)
+                  this.$router.push({code: 'showTask'});
+                  console.log("response logs"+this.items)
               });
             },
         }

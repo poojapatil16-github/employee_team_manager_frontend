@@ -2,7 +2,7 @@
   <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h3>Add Employee</h3>
+                <h3>Employee Details</h3>
             </div>
             <div class="card-body">
                 <form v-on:submit.prevent="addEmployee">
@@ -46,7 +46,7 @@ export default {
           EmployeeService.createEmployee(this.item).then(
               (response) => {
                   this.content = response.data;
-                  console.log("response data"+this.content);
+                  alert('Employee created successfully!');
                   },
                   (error) => {
                       this.content =(error.response && error.response.data && error.response.data.message) || 

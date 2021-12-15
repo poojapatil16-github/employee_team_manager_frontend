@@ -29,11 +29,16 @@ class TaskService {
     return axios.get(API_URL,{ params: { code: code }});
   }
 
-  updateTeam(team) {
+  updateTask(task) {
     return axios.put(API_URL , {
-      name: team.name,
-      startDate: team.startDate,
-      endDate: team.endDate
+      code: task.code,
+      logs: [
+        {
+            employee_code: task.employee_code,
+            logedTime:task.logedTime,
+            logStartDate:task.logStartDate
+        }
+      ]
     });
   }
 

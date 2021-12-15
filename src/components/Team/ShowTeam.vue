@@ -18,7 +18,7 @@
                     <td>{{ item.startDate }}</td>
                     <td>{{ item.endDate }}</td>
                     <td><router-link :to="{name: 'UpdateTeam', params: { name: item.name }}" class="btn btn-primary mr-3">Edit</router-link>
-                    <button v-on:click="deleteItem(item.name)" class="btn btn-danger">Delete</button></td>
+                    <button v-on:click="deleteTeam(item.name)" class="btn btn-danger">Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -37,22 +37,21 @@ import TeamService from "../../services/team.service";
 
         created: function()
         {
-            this.fetchItems();
+            this.fetchTeam();
         },
 
         methods: {
-            fetchItems()
+            fetchTeam()
             {
               TeamService.getTeams().then((response) => {
                   this.items = response.data;
               });
             },
-            deleteItem(name)
+            deleteTeam(name)
             {
               TeamService.deleteTeams(name).then((response) => {
                   this.items = response.data;
-                  this.fetchItems();
-                  console.log("deleted");
+                  this.fetchTeam();
               });
             }
         }

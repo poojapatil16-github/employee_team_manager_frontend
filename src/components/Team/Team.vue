@@ -5,7 +5,7 @@
     </header>
           <button type="button" class="btn btn-dark mr-3" ><router-link :to="{ name: 'CreateTeam' }">Add Team</router-link></button>
 
-          <button type="button" class="btn btn-dark" ><router-link :to="{ name: 'ShowTeam' }">All Team</router-link></button>
+          <button type="button" class="btn btn-dark" ><router-link :to="{ name: 'ShowTeam' }">View Team</router-link></button>
 
     <transition name="fade">
       <div class="gap">
